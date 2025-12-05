@@ -1,55 +1,51 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: 0.0.0 → 1.0.0
+- List of modified principles: 10 principles added
+- Added sections: Core Principles, Governance
+- Removed sections: SECTION_2_NAME, SECTION_3_NAME
+- Templates requiring updates:
+  - ✅ .specify/templates/plan-template.md
+  - ✅ .specify/templates/spec-template.md
+  - ✅ .specify/templates/tasks-template.md
+- Follow-up TODOs: None
+-->
+# Physical AI & Humanoid Robotics Book Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Beginner-Focused Audience
+Content must be clear, progressive, example-driven, and visually supported to ensure it is accessible to beginners.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Grounded in Real Use Cases
+Every explanation must be grounded in real-world robotics applications using tools like ROS2, Gazebo, Isaac Sim, and various sensors.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. High Code Quality
+All code must adhere to principles of Object-Oriented Programming (OOP), modularity, separation of concerns, extensibility, and reusability.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Scalable Content
+All content must be designed to scale, starting from small, self-contained examples and building up to complete humanoid robotics pipelines.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Test-Driven Development (TDD) Mindset
+Adopt a TDD approach by defining specifications and considering edge cases before implementation.
 
-### [PRINCIPLE_6_NAME]
+### VI. Structured Writing Style
+The writing style must follow a consistent structure: Concept → Why it matters → Example → Hands-On steps → Summary.
 
+### VII. Measurable Learning Outcomes
+Every learning module must have clearly defined and measurable learning outcomes. Vague claims are not permitted.
 
-[PRINCIPLE__DESCRIPTION]
+### VIII. Accessibility and Terminology
+New terms must be explained plainly before they are used to ensure accessibility for all readers.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### IX. Clarity Over Cleverness
+When a conflict arises, prioritize clarity to ensure beginners can follow the content smoothly. Cleverness for its own sake is to be avoided.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### X. Consistency is Law
+Maintain uniformity in tone, formatting, terminology, and difficulty progression across all content. Consistency is non-negotiable.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+These principles are the single source of truth for all content creation for the "Physical AI & Humanoid Robotics Book". All contributions will be measured against this constitution to ensure quality and consistency. Amendments to this constitution require review and approval to ensure they align with the project's core goals.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-05 | **Last Amended**: 2025-12-05

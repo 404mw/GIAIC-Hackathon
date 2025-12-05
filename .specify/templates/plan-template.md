@@ -31,7 +31,16 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] **Principle I: Beginner-Focused Audience** - Content is clear, progressive, and example-driven.
+- [ ] **Principle II: Grounded in Real Use Cases** - Explanations are tied to real robotics applications (ROS2, Gazebo, etc.).
+- [ ] **Principle III: High Code Quality** - Code is modular, extensible, and follows OOP.
+- [ ] **Principle IV: Scalable Content** - Content scales from small examples to full pipelines.
+- [ ] **Principle V: TDD Mindset** - Specifications and edge cases are considered before implementation.
+- [ ] **Principle VI: Structured Writing Style** - Writing follows the "Concept → Why → Example → How → Summary" structure.
+- [ ] **Principle VII: Measurable Learning Outcomes** - Modules have clear, measurable goals.
+- [ ] **Principle VIII: Accessibility and Terminology** - New terms are explained clearly.
+- [ ] **Principle IX: Clarity Over Cleverness** - Clarity is prioritized for beginner understanding.
+- [ ] **Principle X: Consistency is Law** - Tone, formatting, and terminology are uniform.
 
 ## Project Structure
 
