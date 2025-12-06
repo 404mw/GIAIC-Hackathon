@@ -23,10 +23,20 @@ As a project owner, I want to provide a natural language description of a featur
 
 ---
 
+## Clarifications
+
+### Session 2025-12-05
+- Q: How should the system proceed if a feature branch with the same generated name already exists? → A: Append Suffix: Add a numeric suffix (e.g., my-feature-2, my-feature-3) and proceed with creation.
+- Q: If a script fails, how should the notification be presented? → A: Summary and Full Log: Show a concise summary and write the full `stderr` to a log file (`.gemini/logs/error.log`).
+- Q: What does the "quality checklist" in SC-001 entail? → A: The checklist should be the `.specify/templates/checklist-template.md` template.
+- Q: What should happen if the specification generation exceeds the 30-second threshold? → A: User Prompt: Prompt the user to decide whether to continue waiting or terminate the operation.
+- Q: Should the generated spec always include sections for Summary, Requirements, Acceptance Criteria, Dependencies, and Success Outcome, even if initially empty? → A: Always Include Placeholders: Yes, always include all mandated sections as placeholders, even if empty.
+
 ### Edge Cases
 
 - What happens when the feature description is empty? (The system should produce an error).
-- What happens if the script fails? (The user should be notified).
+- What happens if the script fails? (The system should show a concise summary to the user and write the full `stderr` to `.gemini/logs/error.log`).
+- If a feature branch with the same generated name already exists, the system should append a numeric suffix (e.g., `my-feature-2`) and proceed.
 
 ## Dependencies
 
@@ -37,11 +47,11 @@ As a project owner, I want to provide a natural language description of a featur
 ### Functional Requirements
 
 - **FR-001**: The system MUST generate a concise short name for the branch from the feature description.
-- **FR-002**: The system MUST check for existing branches and determine the next available feature number.
+- **FR-002**: The system MUST check for existing branches to determine the next available feature number and handle name collisions for the generated short name by appending a numeric suffix.
 - **FR-003**: The system MUST create a new feature branch.
 - **FR-004**: The system MUST create a `spec.md` file.
 - **FR-005**: The system MUST populate the `spec.md` file with a specification based on the user's description.
-- **FR-006**: The specification MUST include sections for Summary, Requirements, Acceptance Criteria, Dependencies, and Success Outcome.
+- **FR-006**: The specification MUST always include sections for Summary, Requirements, Acceptance Criteria, Dependencies, and Success Outcome as placeholders, even if initially empty.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -52,6 +62,6 @@ As a project owner, I want to provide a natural language description of a featur
 
 ### Measurable Outcomes
 
-- **SC-001**: 100% of generated specifications pass the quality checklist.
-- **SC-002**: The time to generate a specification is less than 30 seconds.
+- **SC-001**: 100% of generated specifications pass the quality checklist defined in `.specify/templates/checklist-template.md`.
+- **SC-002**: The time to generate a specification is less than 30 seconds. If this threshold is exceeded, the user will be prompted to decide whether to continue waiting or terminate the operation.
 - **SC-003**: 95% of users can successfully generate a specification on the first attempt.
