@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+langchain
+faiss-cpu
+langchain-community
+tqdm
+unstructured[md]
+python-magic-bin
+sentence-transformers
+langchain-groq
+dotenv

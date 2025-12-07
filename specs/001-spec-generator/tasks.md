@@ -1,11 +1,11 @@
 ---
-description: "Task list for feature implementation"
+description: "Task list for generating book content"
 ---
 
-# Tasks: High-Level Platform Architecture
+# Tasks: Generate Book Content
 
 **Input**: Design documents from `/specs/001-spec-generator/`
-**Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
+**Prerequisites**: `plan.md` (required), `spec.md` (required for user stories), `research.md`, `data-model.md`, `contracts/`
 
 ## Format: `[ID] [P?] [Story] Description`
 
@@ -14,116 +14,35 @@ description: "Task list for feature implementation"
 - Include exact file paths in descriptions
 
 ---
-## Phase 1: Setup (Shared Infrastructure)
+## Phase 1: Content Generation
 
-**Purpose**: Project initialization and basic structure
+**Purpose**: Generate the full content for the book "Physical AI and Humanoid Robotics".
 
-- [ ] T001 Create root directories `book/`, `api/`, `scripts/` in the project root.
-- [ ] T002 Initialize a Docusaurus project in the `book/` directory.
-- [ ] T003 [P] Initialize the Python project in `api/` with a directory structure (`app/`, `tests/`) and an empty `requirements.txt`.
-- [ ] T004 [P] Create an empty `scripts/process_content.py` file.
-
----
-
-## Phase 2: Foundational (Blocking Prerequisites)
-
-**Purpose**: Core infrastructure that MUST be complete before ANY user story can be implemented
-
-- [ ] T005 Create placeholder content files (`introduction.mdx`, `chapter1.mdx`) in `book/docs/` to enable pipeline testing.
-
----
-
-## Phase 3: User Story 1 - Book Content Site
-
-**Goal**: A user can read book content on a statically generated website.
-**Independent Test**: Run `npm start` in the `book` directory and verify the placeholder chapters are rendered correctly in the browser.
-
-### Implementation for User Story 1
-
-- [ ] T006 [US1] Configure `docusaurus.config.js` with the book title, and set up sidebar navigation for the placeholder content.
-- [ ] T007 [P] [US1] Customize the default Docusaurus theme via CSS in `book/src/css/custom.css`.
-- [ ] T008 [P] [US1] Create a custom React component for callouts/admonitions in `book/src/components/Callout.js` for use in MDX.
+- [x] T001 [Content] Generate content for `book/docs/chapter1.mdx`: Introduction to Physical AI
+- [x] T002 [Content] Generate content for `book/docs/chapter2.mdx`: A Brief History of Robotics and AI
+- [x] T003 [Content] Generate content for `book/docs/physical-ai-course/module-1-ros2.mdx`: The Robotic Nervous System (ROS 2) - *already exists, will enhance*
+- [x] T004 [Content] Generate content for `book/docs/chapter4.mdx`: Simulating the World: Digital Twins and Physics Engines
+- [x] T005 [Content] Generate content for `book/docs/chapter5.mdx`: Sensing the World: Computer Vision and Sensor Fusion
+- [x] T006 [Content] Generate content for `book/docs/chapter6.mdx`: Acting in the World: Actuators and Control Systems
+- [x] T007 [Content] Generate content for `book/docs/chapter7.mdx`: Humanoid Robot Design and Kinematics
+- [x] T008 [Content] Generate content for `book/docs/chapter8.mdx`: Bipedal Locomotion and Gait Control
+- [x] T009 [Content] Generate content for `book/docs/chapter9.mdx`: Manipulation and Grasping
+- [x] T010 [Content] Generate content for `book/docs/chapter10.mdx`: Human-Robot Interaction and Social Robotics
+- [x] T011 [Content] Generate content for `book/docs/chapter11.mdx`: Introduction to Reinforcement Learning for Robotics
+- [x] T012 [Content] Generate content for `book/docs/chapter12.mdx`: Learning from Demonstration: Imitation Learning
+- [x] T013 [Content] Generate content for `book/docs/chapter13.mdx`: Vision-Language Models (VLMs) for Robotic Control
+- [x] T014 [Content] Generate content for `book/docs/physical-ai-course/module-3-nvidia-isaac.mdx`: NVIDIA Isaac: A Platform for AI Robotics - *already exists, will enhance*
+- [x] T015 [Content] Generate content for `book/docs/chapter15.mdx`: Integrating Large Language Models (LLMs) with Robotics
+- [x] T016 [Content] Generate content for `book/docs/chapter16.mdx`: Swarm Robotics and Multi-Agent Systems
+- [x] T017 [Content] Generate content for `book/docs/chapter17.mdx`: Soft Robotics and Bio-inspired Design
+- [x] T018 [Content] Generate content for `book/docs/chapter18.mdx`: The Future of Humanoid Robotics
+- [x] T019 [Content] Generate content for `book/docs/chapter19.mdx`: Ethical Considerations in Physical AI
+- [x] T020 [Content] Generate content for `book/docs/chapter20.mdx`: Getting Started with Your Own Robotics Project
 
 ---
+## Phase 2: Finalization
 
-## Phase 4: User Story 2 - Content Processing Pipeline
+**Purpose**: Update the book's navigation and configuration.
 
-**Goal**: Content from the `book/docs` directory is automatically processed into a vector index file.
-**Independent Test**: Run `python scripts/process_content.py` and verify it creates a `faiss_index.bin` file without errors.
-
-### Implementation for User Story 2
-
-- [ ] T009 [US2] Implement document loading for `.mdx` files in `scripts/process_content.py`.
-- [ ] T010 [US2] Implement text chunking logic in `scripts/process_content.py`.
-- [ ] T011 [US2] Implement embedding generation using LangChain and FAISS in `scripts/process_content.py`.
-- [ ] T012 [US2] Save the generated FAISS index to a file at `api/faiss_index.bin`.
-
----
-
-## Phase 5: User Story 3 - RAG API Service
-
-**Goal**: The backend can receive a query and return a response using the vector index.
-**Independent Test**: Run `uvicorn` in the `api` directory, and send a POST request to `/api/chat` using a tool like curl or Postman. Verify a valid JSON response is returned.
-
-### Implementation for User Story 3
-
-- [ ] T013 [P] [US3] Define Pydantic models for the API request/response in `api/app/models.py` based on `openapi.yaml`.
-- [ ] T014 [US3] Implement logic to load the FAISS index from `api/faiss_index.bin` in a new file `api/app/services/rag_service.py`.
-- [ ] T015 [US3] Implement the core RAG chain logic (retrieval, prompt engineering, LLM call) in `api/app/services/rag_service.py`.
-- [ ] T016 [US3] Implement the `/api/chat` endpoint in `api/app/main.py` using the RAG service.
-
----
-
-## Phase 6: User Story 4 - Chatbot UI Integration
-
-**Goal**: A user can ask a question in a chat interface on the book website and receive an answer from the API.
-**Independent Test**: Open the book website, use the chat component to ask a question, and verify that an answer from the backend is displayed.
-
-### Implementation for User Story 4
-
-- [ ] T017 [P] [US4] Create the basic UI for the chatbot (input box, message display) in a new React component at `book/src/components/Chatbot/index.js`.
-- [ ] T018 [US4] Implement state management for chat history and loading status within the `Chatbot` component.
-- [ ] T019 [US4] Implement the API call from the `Chatbot` component to the backend `/api/chat` endpoint.
-- [ ] T020 [US4] Integrate the `Chatbot` component into the Docusaurus layout so it is visible on all pages.
-
----
-
-## Phase 7: Polish & Cross-Cutting Concerns
-
-**Purpose**: Improvements that affect multiple user stories.
-
-- [ ] T021 [P] Implement basic error handling and logging middleware for the FastAPI application in `api/app/main.py`.
-- [ ] T022 Create a GitHub Actions workflow file at `.github/workflows/deploy.yml` to automate the build and deployment process.
-- [ ] T023 Write the final project `README.md` in the repository root, including setup and architecture overview.
-
----
-
-## Dependencies & Execution Order
-
-### Phase Dependencies
-
-- **User Stories** depend on **Setup (Phase 1)** and **Foundational (Phase 2)** completion.
-
-### User Story Dependencies
-
-- **US1 (Book Site)**: Can start after Phase 2.
-- **US2 (Content Pipeline)**: Can start after Phase 2.
-- **US3 (RAG API)**: Depends on **US2** (needs the index file).
-- **US4 (Chatbot UI)**: Depends on **US1** (needs the site to host the component) and **US3** (needs the API to call).
-
-### Parallel Opportunities
-
-- US1 and US2 can be worked on in parallel.
-- Within each story, tasks marked [P] can be worked on in parallel.
-
----
-
-## Implementation Strategy
-
-### MVP First (Book Site + RAG API)
-
-1. Complete Phase 1 & 2.
-2. Complete US1, US2, and US3.
-3. **STOP and VALIDATE**: The book site renders, and the API can be tested manually. This is a key milestone.
-4. Add US4 to integrate the two parts.
-5. Deploy.
+- [x] T021 [Admin] Update `book/sidebars.ts` to include all new chapters and create a structured table of contents.
+- [x] T022 [Admin] Verify all links and navigation work as expected.

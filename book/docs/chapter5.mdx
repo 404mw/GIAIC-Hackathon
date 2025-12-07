@@ -1,0 +1,52 @@
+# Chapter 5: Sensing the World: Computer Vision and Sensor Fusion
+
+A robot's ability to act intelligently is fundamentally limited by its ability to perceive its environment accurately. Just as humans rely on their senses, robots rely on a suite of sensors to gather information about the world. This chapter covers the primary sensors used in modern robotics, with a focus on computer vision and the critical process of sensor fusion.
+
+## The Robot's Senses: Key Sensor Modalities
+
+### 1. Vision (Cameras)
+
+Cameras are the richest source of data for a robot, providing high-resolution information about the appearance of the world. They are passive sensors (they only capture existing light) and are essential for tasks like object recognition, navigation, and human-robot interaction.
+
+-   **Monocular Cameras**: A single camera, similar to a single human eye. It provides rich 2D information but struggles to perceive depth accurately.
+-   **Stereo Cameras**: A pair of cameras separated by a known distance. By comparing the two images (stereopsis), the robot can compute a depth map, enabling 3D perception.
+
+### 2. Proprioception (Encoders)
+
+Proprioception is the sense of self-movement and body position. In robots, this is achieved with **encoders**, which are sensors that measure the position of the robot's joints. Encoders provide the robot with direct knowledge of its own configuration (e.g., "my elbow is bent at a 90-degree angle").
+
+### 3. Depth and Distance (LiDAR and Depth Cameras)
+
+While vision is rich, other sensors provide more direct and accurate 3D measurements.
+
+-   **LiDAR (Light Detection and Ranging)**: An active sensor that emits laser beams and measures the time it takes for the light to reflect off objects. This produces a highly accurate 3D "point cloud" of the environment. LiDAR is a key sensor for autonomous navigation.
+-   **Depth Cameras**: These cameras, like the Intel RealSense or Microsoft Kinect, project an infrared pattern onto the scene and measure its distortion to calculate depth for each pixel. They provide a dense depth map similar to a stereo camera but often in a smaller and cheaper package.
+
+### 4. Inertial Measurement Units (IMUs)
+
+An **IMU** is a small chip that measures a robot's orientation and angular velocity. It typically contains:
+
+-   **An Accelerometer**: Measures linear acceleration (and gravity).
+-   **A Gyroscope**: Measures rotational velocity.
+
+IMUs are critical for balance and stabilization, especially in dynamic robots like humanoids.
+
+## The Brain's Visual Cortex: Computer Vision
+
+Raw sensor data is not enough; the robot needs to interpret it. **Computer Vision** is the field of AI dedicated to helping computers "see" and understand the content of digital images and videos. In robotics, key computer vision tasks include:
+
+-   **Object Detection**: Identifying and drawing a bounding box around objects in an image (e.g., "there is a cup at this location").
+-   **Image Segmentation**: Classifying each pixel in an image to a specific category (e.g., "these pixels are part of the floor, these are a table").
+-   **Pose Estimation**: Determining the 3D position and orientation of an object (or the robot itself) relative to the camera.
+
+The deep learning revolution has had a massive impact on computer vision. Convolutional Neural Networks (CNNs) are now the standard for most vision tasks, enabling robots to perceive the world with unprecedented accuracy.
+
+## Sensor Fusion: Creating a Coherent Worldview
+
+No single sensor is perfect. Cameras are sensitive to lighting conditions, LiDAR has a limited field of view, and IMUs can drift over time. **Sensor Fusion** is the process of combining data from multiple sensors to create a more accurate and robust understanding of the environment than any single sensor could provide on its own.
+
+A common algorithm used for sensor fusion is the **Kalman Filter**. It is a mathematical tool that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement alone.
+
+**Example**: By fusing the data from an IMU and wheel encoders, a mobile robot can get a much more accurate estimate of its position than it could from either sensor individually. The encoders provide good short-term odometry, while the IMU helps to correct for drift and orientation errors.
+
+In the next chapter, we will turn our attention from sensing to acting, exploring the actuators and control systems that allow a robot to move and interact with the world.
