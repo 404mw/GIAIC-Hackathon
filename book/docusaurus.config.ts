@@ -74,7 +74,11 @@ const config: Config = {
           position: 'left',
           label: 'Book',
         },
+        {
           href: 'https://github.com/404mw/GIAIC-Hackathon',
+          label: 'GitHub',
+          position: 'right',
+        },
       ],
     },
     footer: {
