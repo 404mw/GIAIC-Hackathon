@@ -15,15 +15,16 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://giaic-hackathon.github.io',
+  url: 'https://404mw.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/01-Physical_AI_&_Humanoid_Robotics_book/',
+  baseUrl: '/GIAIC-Hackathon/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'giaic-hackathon', // Usually your GitHub org/user name.
-  projectName: '01-Physical_AI_&_Humanoid_Robotics_book', // Usually your repo name.
+  organizationName: '404mw', // Usually your GitHub org/user name.
+  projectName: 'GIAIC-Hackathon', // Usually your repo name.
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
 
@@ -44,7 +45,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/giaic-hackathon/01-Physical_AI_&_Humanoid_Robotics_book/tree/main/',
+            'https://github.com/404mw/GIAIC-Hackathon/tree/main/',
         },
         blog: false, // disabled blog
         theme: {
@@ -73,11 +74,7 @@ const config: Config = {
           position: 'left',
           label: 'Book',
         },
-        {
-          href: 'https://github.com/giaic-hackathon/01-Physical_AI_&_Humanoid_Robotics_book',
-          label: 'GitHub',
-          position: 'right',
-        },
+          href: 'https://github.com/404mw/GIAIC-Hackathon',
       ],
     },
     footer: {
@@ -97,7 +94,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/giaic-hackathon/01-Physical_AI_&_Humanoid_Robotics_book',
+              href: 'https://github.com/404mw/GIAIC-Hackathon',
             },
           ],
         },
